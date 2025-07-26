@@ -19,10 +19,6 @@ selected_sample = st.selectbox("Sample questions:", [""] + sample_questions)
 
 question = st.text_input("Your question in Bangla or English:", value=selected_sample if selected_sample else "")
 
-
-# question = st.text_input("Your question in Bangla or English:", value=question if 'question' in locals() else "")
-
-
 if st.button("Get Answer") and question:
     with st.spinner("Generating answer..."):
         try:
@@ -34,7 +30,6 @@ if st.button("Get Answer") and question:
                 data = response.json()
                 answer = data.get("answer", "No answer found.")
                 st.success(f"**Answer:** {answer}")
-                #st.write(data["answer"])
             else:
                 st.error("Failed to get answer from the backend.")
         except Exception as e:
