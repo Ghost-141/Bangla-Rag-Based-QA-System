@@ -16,17 +16,6 @@ def get_api_key():
     return groq_api_key if groq_api_key else print("GROQ_API_KEY not found in environment variables.")
   
 
-# custom_prompt = PromptTemplate(
-#     input_variables=["context", "question"],
-#     template=(
-#         "নিচের তথ্যটি মনোযোগ দিয়ে পড়ুন এবং প্রশ্নের উত্তর দিন। "
-#         "তথ্য ছাড়া অনুমান করবেন না। শুধুমাত্র সঠিক উত্তর দিন।\n\n"
-#         "তথ্য:\n{context}\n\n"
-#         "প্রশ্ন: {question}\n"
-#         "উত্তর:"
-#     )
-# )
-
 
 custom_prompt = PromptTemplate(
     input_variables=["context", "question"],
@@ -60,7 +49,7 @@ def create_bangla_qa_pipeline(api_key=None):
     """
     Initializes and returns a RetrievalQA pipeline using:
     - Chroma DB for retrieval (with banBERT embeddings),
-    - ChatGroq with the Gemma-2-9B-IT model for generation,
+    - ChatGroq model for generation,
     - Custom prompt for Bengali PDF-based QA.
     Returns:
         RetrievalQA: A LangChain RetrievalQA chain ready for use.
@@ -71,7 +60,7 @@ def create_bangla_qa_pipeline(api_key=None):
             raise ValueError("API key is required but not provided.")
         
     retriever = Chroma(
-        collection_name="bangla-pdf-base",
+        collection_name="bangla-pdf-base", 
         embedding_function=embeddings,
         persist_directory="./chroma_langchain_db"
     ).as_retriever()

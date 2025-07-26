@@ -1,17 +1,17 @@
 # Bangla Question Answering System
 
-This is a Question Answering system that can answer questions in both Bangla and English. It uses a RAG (Retrieval-Augmented Generation) pipeline to generate answers from a processed `.pdf` file.
+This is a Q/A based system that can answer questions in both Bangla and English. It uses a RAG (Retrieval-Augmented Generation) pipeline to generate answers from a processed `.pdf` file.
 
 ## Project Structure
 ```
 ├── data/
 │   ├── processed/
-│   │   ├── chroma_langchain_db
 │   │   ├── HSC26-Bangla1st-Paper.txt
 │   │   └── stopwords.pkl
 │   └── raw/
 │       ├── HSC26-Bangla1st-Paper.pdf
 │       └── bangla_stopwords.xlsx
+├── chroma_langchain_db/
 ├── notebook/
 │   └── test.ipynb
 ├── src/
@@ -38,8 +38,9 @@ This is a Question Answering system that can answer questions in both Bangla and
 2.  **Create a virtual environment:**
     #### Using `venv`:
     ```bash
-    python -m venv venv
-    source venv/bin/activate 
+    python3.9 -m venv rag
+    rag/bin/activate #for windows
+    source rag/bin/activate #for linux 
     ```
     #### Using `anaconda`:
     ```bash

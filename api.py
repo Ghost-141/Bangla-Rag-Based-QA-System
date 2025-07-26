@@ -1,7 +1,5 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from src.utils.dataloader import load_documents
-from src.utils.preprocess import preprocess_and_chunk
 from src.utils.retriever import create_bangla_qa_pipeline
 
 app = FastAPI(
@@ -10,8 +8,6 @@ app = FastAPI(
     version="1.0.0"
 )
 
-# text = load_documents()
-# chunks = preprocess_and_chunk(text, chunk_size=500, chunk_overlap=70)
 qa_chain = create_bangla_qa_pipeline()
 
 class Question(BaseModel):
