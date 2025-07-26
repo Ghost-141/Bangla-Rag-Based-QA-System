@@ -19,6 +19,7 @@ This is a Q/A based system that can answer questions in both Bangla and English.
 │       ├── dataloader.py
 │       ├── datastore.py
 │       ├── preprocess.py
+|       ├── pdf_process.py  
 │       └── retriever.py
 ├── api.py
 ├── ui.py
@@ -62,6 +63,13 @@ This is a Q/A based system that can answer questions in both Bangla and English.
     ```
     GROQ_API_KEY=paste_api_key_here
     ```
+
+5. **Process Custom Pdf Files**  
+To process custom pdf files containig bangla or other language you can use the `pdf_process.py` function along with following packages:
+
+- [tesseract 5.x](https://digi.bib.uni-mannheim.de/tesseract/)
+
+- [bangla-pdf-ocr](https://github.com/asiff00/bangla-pdf-ocr)
 
 ## Usage
 
